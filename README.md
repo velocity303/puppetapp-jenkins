@@ -1,6 +1,8 @@
 A puppet class to perform App Orchestration with the tse_sqlserver and sqlwebapp modules in the TSE Demo Environment.
 
 Single Node Setup:
+
+```puppet
 site {
   cloudshop { 'allinone':
     dbinstance                                  => 'MYINSTANCE',
@@ -12,8 +14,10 @@ site {
     },
   }
 }
+```
+Dual Node Setup:
 
-Dual Node Setup: 
+```puppet
 site {
   cloudshop { 'split':
     dbinstance                                  => 'MYINSTANCE',
@@ -26,4 +30,4 @@ site {
     },
   }
 }
-
+```
