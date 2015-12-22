@@ -1,6 +1,6 @@
 ###Puppet Cloudshop
 
-####A puppet class to perform App Orchestration with the tse_sqlserver and sqlwebapp modules in the TSE Demo Environment.
+####A puppet module to perform App Orchestration with the tse_sqlserver and sqlwebapp modules in the TSE Demo Environment.
 
 This module will install and setup a MS SQL Server instance with the AdventureWorks2012 DB and serve that to a ASP.NET application hosted on IIS.
 
