@@ -1,28 +1,13 @@
-define cloudshop::app ( 
-  $dbserver,
-  $dbinstance,
-  $dbpassword,
-  $dbuser,
-  $dbname,
-  $iis_site      = 'Default Web Site',
-  $docroot       = 'C:/inetpub/wwwroot',
-  $file_source   = 'https://s3-us-west-2.amazonaws.com/tseteam/files/sqlwebapp',
+define jenkins::app ( 
+  $jenkins_version,
+  $tomcat_major_version,
 ){
-  class { 'sqlwebapp':
-    dbinstance  => $dbinstance,
-    dbpass      => $dbpassword,
-    dbuser      => $dbuser,
-    dbname      => $dbname,
-    dbserver    => $dbserver,
-    iis_site    => $iis_site,
-    docroot     => $docroot,
-    file_source => $file_source,
+  class { 'profile::app::jenkins':
+    jenkins_version      => $jenkins_version,
+    tomcat_major_version => $tomcat_major_version,
   }
 }
-Cloudshop::App consumes Mssql {
-  dbinstance => $dbinstance,
-  dbuser     => $dbuser,
-  dbpassword => $dbpassword,
-  dbname     => $dbname,
-  dbserver   => $dbserver,
+Jenkins::App produces Tomcat {
+  host => $::fqdn,
+  port => 8080,
 }
