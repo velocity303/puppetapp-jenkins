@@ -3,7 +3,7 @@ define jenkins::web (
   $port,
 ){
   include profile::apache
-  profile::apache::rproxy_vhost { "${::fqdn}":
+  profile::apache::rproxy_vhost { "${$host}-jenkins":
     host => $host,
     port => $port,
   }
